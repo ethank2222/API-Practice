@@ -1,5 +1,6 @@
 //https://developer.mapquest.com/documentation/open/geocoding-api/address/get/
 //https://home.openweathermap.org/api_keys
+// https://ethank2222.github.io/API-Practice/
 
 document.getElementById('loc').onkeydown = function(e){
     if(e.keyCode == 13){
