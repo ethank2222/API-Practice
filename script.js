@@ -14,10 +14,21 @@ function search(){
     .then(response => response.json())
     .then(function (data){
         var x = document.getElementById("lat");
-        x.innerText = data.results[0].locations[0].latLng.lat;
+        x.innerText = "Latitude: " + data.results[0].locations[0].latLng.lat;
         var y = document.getElementById("long");
-        y.innerText = data.results[0].locations[0].latLng.lng;
-        document.getElementById("insert").innerHTML='<div id="wrapper"><div class="popout"><center><h1 id="searchLoc"></h1></center></div></div>'
+        y.innerText = "Latitude: " + data.results[0].locations[0].latLng.lng;
+        document.getElementById("insert").innerHTML=`
+        <div id="wrapper">
+            <div class="popout">
+                <center><h1 id="searchLoc"></h1></center>
+                <p id="timeZone"></p>
+                <p id="currentTemp"></p>
+                <p id="feelsLike"></p>
+                <p id="feelsLike"></p>
+            </div>
+        </div>
+        
+        `
         var url = "url(" + data.results[0].locations[0].mapUrl + ")";
         url = url.replace("225,160","1200,1200");
         var wrapper = document.getElementById("wrapper")
@@ -41,3 +52,10 @@ function weather(){
     window.scroll({ top: 10000, left: 0, behavior: 'smooth'});
       
 }
+
+document.getElementById('loc').onfocus = function(){
+    document.getElementById('loc').placeholder = "";
+}
+document.getElementById('loc').addEventListener("focusout", function(){
+    document.getElementById('loc').placeholder = "Location";
+});
