@@ -16,6 +16,14 @@ function search(){
         x.innerText = data.results[0].locations[0].latLng.lat;
         var y = document.getElementById("long");
         y.innerText = data.results[0].locations[0].latLng.lng;
+        document.getElementById("insert").innerHTML='<div id="wrapper"><div class="popout"><center><h1 id="searchLoc"></h1></center></div></div>'
+        var url = "url(" + data.results[0].locations[0].mapUrl + ")";
+        url = url.replace("225,160","1200,1200");
+        var wrapper = document.getElementById("wrapper")
+        wrapper.style.backgroundImage = url;
+        wrapper.style.backgroundPosition = "center";
+        wrapper.style.backgroundRepeat = "no-repeat";
+        wrapper.style.backgroundSize = "100%";
         weather();
     });
 }
