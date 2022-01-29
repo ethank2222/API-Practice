@@ -14,9 +14,9 @@ function search(){
     .then(response => response.json())
     .then(function (data){
         var x = document.getElementById("lat");
-        x.innerText = "Latitude: " + data.results[0].locations[0].latLng.lat;
+        x.innerText = data.results[0].locations[0].latLng.lat;
         var y = document.getElementById("long");
-        y.innerText = "Latitude: " + data.results[0].locations[0].latLng.lng;
+        y.innerText = data.results[0].locations[0].latLng.lng;
         document.getElementById("insert").innerHTML=`
         <div id="wrapper">
             <div class="popout">
@@ -24,7 +24,7 @@ function search(){
                 <p id="timeZone"></p>
                 <p id="currentTemp"></p>
                 <p id="feelsLike"></p>
-                <p id="feelsLike"></p>
+                <p id="weatherDesc"></p>
             </div>
         </div>
         
@@ -46,8 +46,10 @@ function weather(){
     fetch(urlGet)
     .then(response => response.json())
     .then(function (data){
-        var x = document.getElementById("searchLoc");
-        x.innerText = data.timezone;
+        document.getElementById("timeZone").innerText = "Time Zone: " + data.timezone;
+        document.getElementById("currentTemp").innerText = "Current Temperature: " + data.current.temp;
+        document.getElementById("feelsLike").innerText = "Feels Like: " + data.current.feels_like;
+        document.getElementById("weatherDesc").innerText = "Current Weather: " + data.current.weather.description;
     });
     window.scroll({ top: 10000, left: 0, behavior: 'smooth'});
       
