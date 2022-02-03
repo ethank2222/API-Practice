@@ -9,7 +9,7 @@ document.getElementById('loc').onkeydown = function(e){
 }
 function search(){
     var loc = document.getElementById("loc").value;
-    var urlGet = "http://open.mapquestapi.com/geocoding/v1/address?key=TR4prB7QVYZ9pSmqSRqnOh3KDAw8Glmw&location=" + loc;
+    var urlGet = "https://open.mapquestapi.com/geocoding/v1/address?key=TR4prB7QVYZ9pSmqSRqnOh3KDAw8Glmw&location=" + loc;
     fetch(urlGet)
     .then(response => response.json())
     .then(function (data){
