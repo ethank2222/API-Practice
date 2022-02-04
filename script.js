@@ -9,7 +9,7 @@ document.getElementById('loc').onkeydown = function(e){
 }
 function search(){
     var loc = document.getElementById("loc").value;
-    var urlGet = "http://open.mapquestapi.com/geocoding/v1/address?key=TR4prB7QVYZ9pSmqSRqnOh3KDAw8Glmw&location=" + loc;
+    var urlGet = "https://open.mapquestapi.com/geocoding/v1/address?key=TR4prB7QVYZ9pSmqSRqnOh3KDAw8Glmw&location=" + loc;
     fetch(urlGet)
     .then(response => response.json())
     .then(function (data){
@@ -46,6 +46,7 @@ function weather(){
     fetch(urlGet)
     .then(response => response.json())
     .then(function (data){
+        document.getElementById("searchLoc").innerText = document.getElementById("loc").value;
         document.getElementById("timeZone").innerText = "Time Zone: " + data.timezone;
         document.getElementById("currentTemp").innerText = "Current Temperature: " + data.current.temp;
         document.getElementById("feelsLike").innerText = "Feels Like: " + data.current.feels_like;
