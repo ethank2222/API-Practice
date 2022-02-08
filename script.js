@@ -2,6 +2,16 @@
 //https://home.openweathermap.org/api_keys
 // https://ethank2222.github.io/API-Practice/
 
+var a = location.href;
+var b = "";
+if (a.indexOf("?") != -1){
+    var b = a.substring(a.indexOf("?")+1);
+}
+if (b.length > 0){
+    document.getElementById("loc").value = b;
+    search();
+}
+
 document.getElementById('loc').onkeydown = function(e){
     if(e.keyCode == 13){
         search();
